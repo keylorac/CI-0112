@@ -52,7 +52,7 @@ public class Robot
         return nombre;
     }
 
-    public int getPuntosVida() //Getter 2: obtener los puntos de vida del robot
+    public int getPuntosVida() //Getter 2: obtener los puntos (int) de vida del robot
     {
         return puntosVida;
     }
