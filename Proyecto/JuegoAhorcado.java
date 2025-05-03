@@ -11,7 +11,7 @@ public class JuegoAhorcado {
 
         // Pedir al usuario que ingrese la palabra secreta
         System.out.println("Jugador 1, ingresa la palabra a adivinar: ");
-        String palabraIngresada = scanner.nextLinr().toLowerCase();
+        String palabraIngresada = scanner.nextLine().toLowerCase();
 
         // Limpiar simuladamente
         for (int i = 0; i < 50; i++)
@@ -32,10 +32,11 @@ public class JuegoAhorcado {
             // Verificar si la letra esta en la palabra
             if (!palabra.intentarLetra(letra)) {
                 System.out.println("¡Letra incorrecta!!");
+                intentosActuales++; // Aumenta los intentos si la letra no esta en la palabra
             } else {
                 System.out.println("¡Bien! Letra correcta. ");
             }
-            intentosActuales++; // Aumenta los intentos si la letra no esta en la palabra
+            
         }
 
         // Fin del juego: ¿Gano o perdio?
