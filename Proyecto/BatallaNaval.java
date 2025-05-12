@@ -20,7 +20,7 @@ public class BatallaNaval
     private int [][] tableroJugador2 = new int [5][5];
 
     //Metodos de la clase BatallaNaval
-    public BatallaNaval1(int [] barco1Jugador1P, int [] barco2Jugador1P, int [] barco3Jugador1P, int [] barco1Jugador2P, int [] barco2Jugador2P, int [] barco3Jugador2P, int [][] tableroJugador1P, int [][] tableroJugador2P) //Metodo constructor
+    public BatallaNaval(int [] barco1Jugador1P, int [] barco2Jugador1P, int [] barco3Jugador1P, int [] barco1Jugador2P, int [] barco2Jugador2P, int [] barco3Jugador2P, int [][] tableroJugador1P, int [][] tableroJugador2P) //Metodo constructor
     {
         this.barco1Jugador1 = barco1Jugador1P;
         this.barco2Jugador1 = barco2Jugador1P;
@@ -64,17 +64,6 @@ public class BatallaNaval
             return false; //no acertó el disparo
         }
     }
-
-
-
-        tablero[fila][columna] = 1;
-        int barco1Jugador1P = tableroJugador1[barco1Jugador1[0]][barco1Jugador1[1]] = 1; //coordenadasJugador1[0][0]; //Asumimos que el jugador 1 posiciona sus 3 barcos en i=0,j=0 en el tableroJugador1P
-        int barco2Jugador1P = coordenadasJugador1[0][0]; 
-        int barco3Jugador1P = coordenadasJugador1[0][0];
-        int barco1Jugador2P = coordenadasJugador2[0][0]; //Asumimos que el jugador 2 posiciona sus 3 barcos en i=0,j=0 en el tableroJugador2P
-        int barco2Jugador2P = coordenadasJugador2[0][0];
-        int barco3Jugador2P = coordenadasJugador2[0][0];
-
         //Primero tenemos que leer si ya hay un barco o no hay un barco en una posición dada
         if(tablero[fila][columna] == 0)
         {
