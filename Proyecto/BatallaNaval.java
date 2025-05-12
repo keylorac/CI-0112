@@ -26,14 +26,63 @@ public class BatallaNaval
         System.out.println("\n Hola jugador 2, por favor posicione sus 3 barcos");
         posicionBarco(tableroJugador2, 2);
        
-        //Para hacer la parte de los turns, hacemos un while con los turnos
-        private int turno = 1; 
-        while(barcosJugador1 > 0 && barcosJugador2 > 0)
+        //Para hacer la parte de los turnos, hacemos un while con los turnos
+        int turno = 1; //Creamos una variable turno = 1, que significa turno del jugador 1
+        while(barcosJugador1 > 0 && barcosJugador2 > 0) //Mientras que la cantidad de barcos del jugador 1 y del jugador 2 sea mayor a 0 (existan barcos)
         {
-            System.out.println("\n Turno del jugador " = turno);
+            System.out.println("\n Turno del jugador: " + turno); //Empieza el jugador 1
+
+            //Mostramos tablero del oponente con disparos pero ocultando los barcos
+            //Aqui el problema es que tenemos que hacer una condicion donde si el turno es del jugador 1, mostramos el tablero del jugador 2, sino el del jugador 1
+            int[][] tableroOponente; //creamos un tablero como variable para el condicional
+            if(turno == 1) //Si el turno es del jugador 1
+            {
+                tableroOponente = tableroJugador2;//el tablero oponente es el del jugador 2
+            }
+            else //sino
+            {
+                tableroOponente = tableroJugador1;//el tablero oponente es el del juagdor 1
+            }
+
+            mostrarTablero(tableroOponente, true); //recibe la variable tablero oponente creada y condicionada en el if
+            System.out.print("Ingrese la fila (0-4): ");
+            int fila = scanner.nextInt();
+            System.out.print("Ingrese la columna (0-4): ");
+            int columna = scanner.nextInt();
+
+            boolean acierto;
+            if (turno == 1) //si el turno es del jugador 1
+            {
+                acierto = disparar(fila, columna, tableroJugador2);
+                if (acierto) barcosJugador2--; //y acierto es true,entonces el contador de barcos jugador 2 baja en 1
+            } else
+            {
+                acierto = disparar(fila, columna, tableroJugador1);
+                if (acierto) barcosJugador1--;//caso contrario, el contador del jugador 1 baja en una unidad
+            }
+            //Tenemos que alternar ahora el turno, para eso usamos un condicional, es decir, si el turno actual es del jugador 1, cambiamos al jugador 2, caso contrario se queda en jugador 1
+            if (turno == 1)
+            {
+                turno = 2;
+            }
+            else
+            {
+                turno = 1;
+            }
             
         }
-        
+        //Ahora tenemos que determinar quien gano. Usamos otro condicional con una variable local llamada ganador
+        int ganador;
+        if(barcosJugador1 == 0) //si la cantidad de barcos del jugador 1 es 0, el ganador es el jugador 2 o viceversa
+        {
+            ganador = 2;
+        }
+        else
+        {
+            ganador = 1;
+        }
+        System.out.println("\n El juego batlla naval ha terminado. El ganador es el jugador: " + ganador);
+
     }
 
 
@@ -51,7 +100,7 @@ public class BatallaNaval
         {
             System.out.println("Ingrese la fila para el barco " + (barcosPosicionados + 1) + " (0-4): "); //Le indicamos al usuario que tenemos que elegir la fila i en un rango de 0 a 4, como barcoColocados inicia en 0, se coloca (barcosColocados +1)
             int fila = scanner.nextInt();
-            System.out.println("Ingrese la columna para el barco " + (barcosPosiciones + 1) + " (0-4): "); //Igualmente le informamos al usuario que tiene que elegir la otra coordenada j en un rango de 0 a 4,
+            System.out.println("Ingrese la columna para el barco " + (barcosPosicionados + 1) + " (0-4): "); //Igualmente le informamos al usuario que tiene que elegir la otra coordenada j en un rango de 0 a 4,
             int columna = scanner.nextInt();
 
             if(tablero[fila][columna] == 0) //si el tablero en la fila = i y columna = j no tiene barcos (el 0 representa que no hay barco)
@@ -65,8 +114,7 @@ public class BatallaNaval
             }
         }
 
-        
-    }
+    }    
 
     //El siguiente metodo es para leer los disparos, tiene que recibir coordenas i y j, el tablero (del oponente) y el jugador actual
     public boolean disparar(int fila, int columna, int [][] tableroOponente) //el método disparar nos tiene que devolver true or false en caso de que el disparo sea o no certero

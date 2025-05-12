@@ -41,6 +41,8 @@ public class Main {
             }
         } while (opcion != 0);
 
+        scanner.close();//cerrar al final el scanner
+
     }
 
 }
