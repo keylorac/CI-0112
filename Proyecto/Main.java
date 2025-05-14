@@ -5,17 +5,16 @@ public class Main {
     public static void main(String[] args) 
     {
         Scanner scanner = new Scanner(System.in);
-        int opcion = scanner.nextInt();
+        int opcion;
         //Menu donde el usuario puede elegir el juego a jugar
         do {
-            System.out.println(" Menú de juegos ");
+            System.out.println(" Menu de juegos ");
             System.out.println("\n _____________________");
             System.out.println("1. Jugar Batalla Naval");
             System.out.println("2. Jugar Juego del Ahorcado");
             System.out.println("0. Salir");
-            System.out.print("Seleccione una opción: ");
+            System.out.print("Seleccione una opcion: ");
             opcion = scanner.nextInt();
-
             //usamos estructuras de control vistas en clase para el menú
             switch(opcion)
             {

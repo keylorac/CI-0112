@@ -45,9 +45,9 @@ public class BatallaNaval
             }
 
             mostrarTablero(tableroOponente, true); //recibe la variable tablero oponente creada y condicionada en el if
-            System.out.print("Ingrese la fila (0-4): ");
+            System.out.print("Ingrese la fila en la que quiere disparar (0-4): ");
             int fila = scanner.nextInt();
-            System.out.print("Ingrese la columna (0-4): ");
+            System.out.print("Ingrese la columna en la que quiere disparar (0-4): ");
             int columna = scanner.nextInt();
 
             boolean acierto;
@@ -81,7 +81,7 @@ public class BatallaNaval
         {
             ganador = 1;
         }
-        System.out.println("\n El juego batlla naval ha terminado. El ganador es el jugador: " + ganador);
+        System.out.println("\n El juego batalla naval ha terminado. El ganador es el jugador: " + ganador);
 
     }
 
@@ -123,7 +123,7 @@ public class BatallaNaval
         {
             //Si hay un barco, lo tenemos que identificar como hundido, usaremos el numero 2 para identificarlo y mostramos el mensaje de que el jugadorActual tuvo acierto
             tableroOponente[fila][columna] = 2;
-            System.out.println("El jugador acertó un disparo!");
+            System.out.println("El jugador ha acertado el disparo!");
             return true; //jugadorActual acertó el disparo
         }
         else if (tableroOponente[fila][columna] == 0) //0 indica que no existe un barco
@@ -134,7 +134,7 @@ public class BatallaNaval
         else
         {
             //Si no hay un barco en la coordenada i=fila y j=columna, entonces no hay acierto, se retorna un false y se asigna un valor nuevo en tableroOponente
-            System.out.println("Esa posición fue atacada antes");
+            System.out.println("Esa posicion fue atacada antes");
         }
         return false; //no acertó el disparo
     }
