@@ -44,11 +44,15 @@ Gana el jugador que hunda todos los barcos del oponente.
 0 = Casilla vacía
 
 ## Ahorcado
+Dos jugadores van a jugar ahorcado, uno de ellos va a ser el que se ingresa la palabra, y el otro es el que va adivinar dicha palabra. 
+
 Adivina una palabra letra por letra.
 
 Cada error suma una parte del "ahorcado".
 
-El juego termina si aciertas toda la palabra o fallás demasiadas veces.
+El juego termina si aciertas toda la palabra o fallas 6 veces.
+
+En el caso de que hayas perdido, despues del intento fallido número 6, te va a mostrar cuál era la palabra.  
 
 ## Información adicional
 Proyecto desarrollado con fines educativos.

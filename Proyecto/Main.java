@@ -25,7 +25,7 @@ public class Main {
                     break;
 
                 case 2:
-                    // Crea una instancia el juego y lo inicia
+                    // Crea una instancia del juego ahorcado y lo inicia
                     JuegoAhorcado juego = new JuegoAhorcado();
                     juego.iniciarJuego();
                     break;

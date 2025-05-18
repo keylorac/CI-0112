@@ -19,7 +19,7 @@ public class Palabra {
                 acierto = true;
             }
         }
-        return acierto; // Devuelve si la letrafue encontrada o no 
+        return acierto; // Devuelve si la letra fue encontrada o no 
 
     }
 
@@ -34,7 +34,7 @@ public class Palabra {
     public String obtenerProgreso(){
         StringBuilder progreso = new StringBuilder();
 
-        //Construye u na caddena con las letyras adivinadas y guiones bajos
+        //Construye una cadena con las letras adivinadas y guiones bajos
         for (int i = 0; i < letras.length; i++){
             if (letrasAdivinadas[i]){
                 progreso.append(letras[i]).append(" ");
