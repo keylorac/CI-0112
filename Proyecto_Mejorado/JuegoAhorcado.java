@@ -9,9 +9,9 @@ public class JuegoAhorcado {
         Random random = new Random();
 
         // Registrar jugadores
-        Jugador[] jugadores = Jugador.registrarJugadores();
-        Jugador jugador1 = jugadores[0];
-        Jugador jugador2 = jugadores[1];
+        JugadorAhorcado[] jugadores = JugadorAhorcado.registrarJugadores();
+        JugadorAhorcado jugador1 = jugadores[0];
+        JugadorAhorcado jugador2 = jugadores[1];
 
         // Ronda 1 y 2
         System.out.println(
@@ -24,7 +24,6 @@ public class JuegoAhorcado {
 
         // Mostrar resultados
         System.out.println("\n Fin del juego. Resultados finales:");
-        
 
         if (jugador1.getPuntos() > jugador2.getPuntos()) {
             System.out.println(" Gana " + jugador1.getNombre() + "!");
@@ -35,8 +34,8 @@ public class JuegoAhorcado {
 
             // Desempate aleatorio
             boolean jugador1PonePalabra = random.nextBoolean();
-            Jugador quienPone = jugador1PonePalabra ? jugador1 : jugador2;
-            Jugador quienAdivina = jugador1PonePalabra ? jugador2 : jugador1;
+            JugadorAhorcado quienPone = jugador1PonePalabra ? jugador1 : jugador2;
+            JugadorAhorcado quienAdivina = jugador1PonePalabra ? jugador2 : jugador1;
 
             System.out.println("\n Sorteo: " + quienPone.getNombre() + " pone la palabra, " + quienAdivina.getNombre()
                     + " la adivina.");
@@ -57,7 +56,7 @@ public class JuegoAhorcado {
     }
 
     // Jugar una ronda de Ahorcado
-    private void jugarRonda(Jugador quienPonePalabra, Jugador quienAdivina, Scanner scanner) {
+    private void jugarRonda(JugadorAhorcado quienPonePalabra, JugadorAhorcado quienAdivina, Scanner scanner) {
         String palabraSecreta = leerPalabraSecreta(scanner, quienPonePalabra.getNombre());
 
         StringBuilder progreso = new StringBuilder();
