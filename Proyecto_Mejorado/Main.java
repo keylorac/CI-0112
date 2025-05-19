@@ -32,7 +32,7 @@ public class Main {
 
 
                     case 2:
-                    JuegoAhorcado ahorcado = new JuegoAhorcado();
+                    JuegoAhorcadoN ahorcado = new JuegoAhorcadoN();
                     ahorcado.jugar();
                     break;
 
