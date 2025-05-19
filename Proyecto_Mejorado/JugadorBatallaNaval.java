@@ -21,8 +21,8 @@ public class JugadorBatallaNaval
     {
         this.nombre = nombre;
         this.barcosRestantes = 3;//numero inicial de barcos
-        this.tableroPropio = new int [3][3];
-        this.tableroVisible = new int [3][3];
+        this.tableroPropio = new int [5][5];
+        this.tableroVisible = new int [5][5];
     }
     public void inicializarParaJuego() {
         for (int i = 0; i < tableroPropio.length; i++) {
