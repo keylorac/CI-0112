@@ -70,7 +70,7 @@ public class Principal {
             matriz.agregarRelacion(idsValidos);
 
             // Pregunta al usuario si desea ingresar otra foto
-            System.out.println("¿Desea ingresar otra foto? (si/no)");
+            System.out.println("¿Desea ingresar otra foto?");
             continuar = sc.nextLine(); // Se guarda la respuesta para continuar o salir
         }
 
