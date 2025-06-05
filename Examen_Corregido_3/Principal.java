@@ -1,6 +1,8 @@
 // Nombre: Keylor Arley Castro
 // Carné: B80733
-// Descripción: Programa principal para registrar personas, procesar observaciones (fotos) y asignar el mejor amigo según coincidencias en fotos.
+// Descripción: Programa principal para registrar personas, procesar observaciones (fotos)
+//              y asignar el mejor amigo según coincidencias en fotos registradas.
+package Examen_Corregido_3;
 
 import java.util.Scanner;
 
@@ -8,74 +10,76 @@ public class Principal {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
 
-        // Paso 1: Solicita al usuario cuántas personas va a registrar
+        // Paso 1: Se le pide al usuario cuántas personas se van a registrar
         System.out.println("Ingrese cuántas personas desea registrar:");
-        int max = sc.nextInt(); // Cantidad máxima de personas
-        sc.nextLine(); // Limpia el salto de línea
+        int max = sc.nextInt(); // Número total de personas
+        sc.nextLine(); // Limpiamos el salto de línea que deja el nextInt
 
-        // Crea una lista para guardar las personas registradas
+        // Se crea una lista de personas con el tamaño ingresado
         ListaDePersonas lista = new ListaDePersonas(max);
 
-        // Paso 2: Registrar cada persona una por una
+        // Paso 2: Registrar la información de cada persona
         for (int i = 0; i < max; i++) {
             System.out.println("Nombre de la persona #" + (i + 1) + ":");
             String nombre = sc.nextLine();
             System.out.println("Apellidos de la persona #" + (i + 1) + ":");
             String apellidos = sc.nextLine();
 
-            // Agrega la persona a la lista
+            // Se agrega la persona a la lista
             lista.agregarPersona(nombre, apellidos);
         }
 
-        // Crea la matriz donde se guardan las relaciones de amistad
+        // Se crea la matriz que guardará las relaciones entre personas
         MatrizAmistad matriz = new MatrizAmistad(max);
 
-        // Paso 3: Registro de fotos (observaciones)
-        String continuar = "si"; // Para controlar el bucle de ingreso de fotos
-        while (continuar.equals("si")) {
+        // Paso 3: Registrar observaciones (fotos)
+        String continuar = "si"; // El ciclo continúa mientras el usuario escriba "si"
+        while (continuar.toLowerCase().equals("si")) { // Se compara todo en minúscula para evitar errores de mayúscula
             System.out.println("\n¿Cuántas personas hay en la foto?");
             int cantidadEnFoto = sc.nextInt();
-            sc.nextLine();
+            sc.nextLine(); // Limpia el salto de línea
 
-            int[] ids = new int[cantidadEnFoto]; // Vector para guardar los IDs de personas en la foto
-            int index = 0; // Límite real del vector si hay personas no encontradas
+            int[] ids = new int[cantidadEnFoto]; // Vector para guardar los IDs que aparecen en la foto
+            int index = 0; // Contador real de personas válidas encontradas
 
-            // Solicita el nombre y apellido de cada persona en la foto
+            // Se piden los datos de cada persona que aparece en la foto
             for (int i = 0; i < cantidadEnFoto; i++) {
                 System.out.println("Nombre de la persona #" + (i + 1) + ":");
                 String nombre = sc.nextLine();
                 System.out.println("Apellidos:");
                 String apellidos = sc.nextLine();
 
-                // Busca el ID de la persona registrada
+                // Busca el ID de esa persona registrada previamente
                 int id = lista.buscarIdPorNombre(nombre, apellidos);
 
                 if (id != -1) {
-                    ids[index] = id; // Agrega el ID al vector
+                    ids[index] = id; // Se guarda el ID válido
                     index++;
                 } else {
                     System.out.println("Persona no encontrada. Se ignora.");
                 }
             }
 
-            // Copia solo los IDs que sí se encontraron
+            // Se crea un nuevo vector con los IDs válidos
             int[] idsValidos = new int[index];
             for (int i = 0; i < index; i++) {
                 idsValidos[i] = ids[i];
             }
 
-            // Agrega la relación entre todos los IDs de la foto (incluyéndose a sí mismos)
+            // Se agregan las relaciones entre todos los IDs de la observación
             matriz.agregarRelacion(idsValidos);
 
-            // Pregunta si se desea seguir agregando más fotos
+            // Pregunta al usuario si desea ingresar otra foto
             System.out.println("¿Desea ingresar otra foto? (si/no)");
-            continuar = sc.nextLine();
+            continuar = sc.nextLine(); // Se guarda la respuesta para continuar o salir
         }
 
-        // Paso 4: Cálculo de mejores amigos según las relaciones
+        // Paso 4: Se calcula el mejor amigo de cada persona usando la matriz
         matriz.calcularMejoresAmigos(lista);
 
-        // Paso 5: Mostrar en pantalla todas las personas con su mejor amigo
+        // Paso 5: Se muestra en pantalla la lista de personas y su mejor amigo
         lista.imprimirPersonasConAmigos();
+
+        sc.close(); // Se cierra el Scanner (buena práctica)
     }
 }

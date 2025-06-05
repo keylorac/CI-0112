@@ -1,6 +1,7 @@
-// Clase Persona hecha por Keylor Arley Castro B80733
+//Keylor Arley Castro B80733
+// Clase Persona 
 // Esta clase representa una persona que puede ser registrada en el sistema
-
+package Examen_Corregido_3;
 public class Persona {
     // Atributos privados de cada persona
     private int id;              // Identificador único para la persona
