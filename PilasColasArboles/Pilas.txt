@@ -1,0 +1,47 @@
+Pilas (Stack)
+
+- Una pila es básicamente una lista con cieryas restricciones.
+- Los nuevos nodos solo pueden ser agregados o removidos del tope de la pila.
+- Se conoce como una estructura de datos last-in, first-out (LIFO) (LOS ULTIMOS SON LOS PRIMEROS)
+
+*Push permite ingresar de la pila
+*Pop permite remover datos de la pila
+
+Colas
+
+- Los nodos de una cola sólo se agregan o se remueven de la cabeza (el frente) de ella.
+- Se conocen como first-in, first-out (FIFO)
+
+Vamos a implementar la pila:
+
+public class Nodo <T>{
+    private T dato; //T: es un tipo genérico (int, boolean, Clase, String). Los genericos para poner cualquier tipo que queramos.
+    private Nodo<T> siguiente;
+
+    public Nodo (T datoP){
+        this.dato = datoP;
+        this.siguiente = null;
+    }
+    getters
+
+    setters
+
+
+    //otro constructor (vacio)
+
+    public Nodo(){
+        this.datos = 4;
+        this.siguiente = null;
+    }
+
+    //otro constructor (completo)
+
+    public Nodo(T datoP, Nodo<T>, SiguienteP){
+        this.dato = datoP;
+        this.siguiente = siguienteP;
+    }
+
+    
+
+
+}

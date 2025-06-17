@@ -1,0 +1,17 @@
+Arboles
+
+Los arboles siempre tienen que ser recursivo. NO PUEDE SER ITERATIVO. 
+
+
+ARBOLES BINARIOS DE BUSQUEDA:
+
+Cada nodo tiene un hijo. Por eso se llama binario. 
+Las listas, pilas y colas son estructuras lineales. Es decir, son secuencias.
+Un arbol es una estructura no lineal con propiedades especiales. 
+Cada nodo de arbol contiene dos enlaces (de los que uno o ambos pueden ser nulos).
+El nodo raiz es el primer nodo, por donde se empieza el arbol. De cada nodo raiz también puede salir 2 ramas.
+Un nodo que no tiene hijos se le denomina nodo hoja (los 2 hijos que tiene son nulos).
+
+Un árbol de búsqueda binaria es un tipo especial de árbol binario. 
+Cada nodo tiene la característica de que su árbol izquierdo contiene el número mayor. 
+

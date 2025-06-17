@@ -1,0 +1,37 @@
+Recursividad y algoritmo recursivos
+
+Algoritmo iterativo de contar de 0 hasta 100:
+
+public void contarIterativo(int n){
+    for(int i = 0; i <= n; i ++){
+        System.out.println(i + "");
+    }
+}
+
+public void contarIterativo(int n){
+    for(int i = n; i >= n; i --){
+        System.out.println(i + "");
+    }
+}
+
+Un método recursivo es aquel que se llama a sí mismo en su propia definición. La idea es que
+el algoritmo resuelva un problema al dividirlo en subproblemas de la misma naturaleza, de forma
+que cada vez que se llama a sí mismo, trabaja en una versión más pequena del problema original. 
+
+Conceptos:
+
+1. Cuando un método recursivo se llama para resolver un problema, en realidad este solo resuelve
+el caso mas simple. (Caso base)
+
+public class Factorial{
+    public static int 
+}
+
+
+public void contarRecursivo(int n){
+    if(n==-1){
+        return null;
+    }
+    System.out.println(n);
+    contarRecursivo(n-1);
+}
